@@ -13,7 +13,7 @@ func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	cmdFlags := CmdFlags{}
 
-	fmt.Println("Enter commands (add, edit, del, toggle, list):")
+	fmt.Println("Enter commands (list, add, edit, del, toggle, exit):")
 	for {
 		fmt.Print("> ")
 		if scanner.Scan() {
