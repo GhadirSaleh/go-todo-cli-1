@@ -1,12 +1,12 @@
 [
     {
         "Title": "buy AirPods",
-        "Completed": false,
+        "Completed": true,
         "CreatedAt": "2025-01-12T11:43:32.078237165+03:00",
-        "CompletedAt": null
+        "CompletedAt": "2025-01-12T14:08:08.892764638+03:00"
     },
     {
-        "Title": "go to work",
+        "Title": "finish the work",
         "Completed": false,
         "CreatedAt": "2025-01-12T11:43:32.078237552+03:00",
         "CompletedAt": null
