@@ -49,6 +49,7 @@ func (cf *CmdFlags) Execute(todos *Todos) {
 		todos.print()
 	case cf.Add != "":
 		todos.add(cf.Add)
+		fmt.Println("Done!")
 	case cf.Edit != "":
 		parts := strings.SplitN(cf.Edit, ":", 2)
 		if len(parts) != 2 {
@@ -62,10 +63,16 @@ func (cf *CmdFlags) Execute(todos *Todos) {
 			break
 		}
 		todos.edit(index, parts[1])
+		fmt.Println("Done!")
+
 	case cf.Toggle != -1:
 		todos.toggle(cf.Toggle)
+		fmt.Println("Done!")
+
 	case cf.Del != -1:
 		todos.delete(cf.Del)
+		fmt.Println("Done!")
+
 	default:
 		fmt.Println("Invalid command")
 	}

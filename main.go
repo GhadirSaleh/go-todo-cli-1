@@ -12,6 +12,7 @@ func main() {
 	storage.Load(&todos)
 	scanner := bufio.NewScanner(os.Stdin)
 	cmdFlags := CmdFlags{}
+	todos.print()
 
 	fmt.Println("Enter commands (list, add, edit, del, toggle, exit):")
 	for {
