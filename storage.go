@@ -28,3 +28,13 @@ func (s *storage[T]) Load(data *T) error {
 	}
 	return json.Unmarshal(fileData, data)
 }
+func FileExists(fileName string) bool{
+	_, err := os.Stat(fileName) 
+	if err == nil {
+		 return true 
+	 } 
+	 if os.IsNotExist(err) { 
+		return false
+		} 
+		return false
+	 }
