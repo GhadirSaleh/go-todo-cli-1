@@ -41,14 +41,14 @@ func (cf *CmdFlags) Parse(cmd string) {
 	}
 }
 
-func (cf *CmdFlags) Execute(todos *Todos) {
+func (cf *CmdFlags) Execute(todos *Todos, owner string) {
 	switch {
 	case cf.Exit:
 		return
 	case cf.List:
 		todos.print()
 	case cf.Add != "":
-		todos.add(cf.Add)
+		todos.add(owner, cf.Add)
 		fmt.Println("Done!")
 	case cf.Edit != "":
 		parts := strings.SplitN(cf.Edit, ":", 2)

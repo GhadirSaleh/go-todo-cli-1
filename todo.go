@@ -11,6 +11,7 @@ import (
 )
 
 type Todo struct {
+	Owner       string
 	Title       string
 	Completed   bool
 	CreatedAt   time.Time
@@ -19,14 +20,16 @@ type Todo struct {
 
 type Todos []Todo
 
-func (todos *Todos) add(title string) {
+func (todos *Todos) add(owner string, title string) {
 	todo := Todo{
+		Owner:       owner,
 		Title:       title,
 		Completed:   false,
 		CreatedAt:   time.Now(),
 		CompletedAt: nil,
 	}
 	*todos = append(*todos, todo)
+	fmt.Println(todos)
 }
 
 func (todos *Todos) validateIndex(index int) error {
@@ -77,7 +80,7 @@ func (todos *Todos) edit(index int, title string) error {
 func (todos *Todos) print() {
 	table := table.New(os.Stdout)
 	table.SetRowLines(false)
-	table.SetHeaders("#", "Title", "Completed", "CreatedAt", "CompletedAt")
+	table.SetHeaders("#", "Owner", "Title", "Completed", "CreatedAt", "CompletedAt")
 	for index, t := range *todos {
 		completed := "❌"
 		completedAt := ""
@@ -88,7 +91,7 @@ func (todos *Todos) print() {
 				completedAt = t.CompletedAt.Format(time.RFC1123)
 			}
 		}
-		table.AddRow(strconv.Itoa(index), t.Title, completed, t.CreatedAt.Format(time.RFC1123), completedAt)
+		table.AddRow(strconv.Itoa(index), t.Owner, t.Title, completed, t.CreatedAt.Format(time.RFC1123), completedAt)
 	}
 	table.Render()
 }
