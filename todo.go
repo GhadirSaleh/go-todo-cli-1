@@ -29,7 +29,6 @@ func (todos *Todos) add(owner string, title string) {
 		CompletedAt: nil,
 	}
 	*todos = append(*todos, todo)
-	fmt.Println(todos)
 }
 
 func (todos *Todos) validateIndex(index int) error {
